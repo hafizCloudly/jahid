@@ -1,12 +1,13 @@
 version: '3'
 
 services:
+
   # PHP Service
   php:
     build:
       context: .
       dockerfile: php/Dockerfile
-    container_name: app-1
+    container_name: app
     restart: unless-stopped
     environment:
       SERVICE_NAME: app
@@ -33,9 +34,6 @@ services:
       - "443:443"
     networks:
       - app-network
+
 networks:
   app-network:
-
-volumes:
-  db-data:
-    driver: local
